@@ -27,7 +27,7 @@ contract HeikeRetainer is Ownable, Pausable {
       
     event TransferFailed(address indexed from_, address indexed to_, uint256 amount_);
 
-    constructor() public {
+    constructor() public payable {
         owner = msg.sender;
     }
 
@@ -45,13 +45,11 @@ contract HeikeRetainer is Ownable, Pausable {
         return true;
     }
 
-    function transferTokens(bytes32 symbol_, address to_, uint256 amount_) public whenNotPaused{
+    function transferTokens(bytes32 symbol_, address from_, address to_, uint256 amount_) public whenNotPaused{
         require(tokens[symbol_] != 0x0);
         require(amount_ > 0);
 
         address contract_ = tokens[symbol_];
-        address from_ = msg.sender;
-
         ERC20Interface =  ERC20(contract_);
 
         uint256 transactionId = transactions.push(
@@ -76,12 +74,35 @@ contract HeikeRetainer is Ownable, Pausable {
 
         emit TransferSuccessful(from_, to_, amount_);
     }
+    
+    function withdrawTokens(bytes32 symbol_, address to_, uint256 amount_) public{
+ 
+        address contract_ = tokens[symbol_];
+        ERC20Interface =  ERC20(contract_);
 
+        uint256 transactionId = transactions.push(
+            Transfer({
+            contract_:  contract_,
+            to_: to_,
+            amount_: amount_,
+            failed_: true
+            })
+        );
+       
+       ERC20Interface.transfer(to_, amount_);
+        
+       transactions[transactionId - 1].failed_ = false;
+       emit TransferSuccessful(address(this), to_, amount_);
+
+        
+    }
+    
+    
     function() public payable {}
 
     function withdraw(address beneficiary) public payable onlyOwner whenNotPaused {
         beneficiary.transfer(address(this).balance);
     }
-
+    
 
  }
