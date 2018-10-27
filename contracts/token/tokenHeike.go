@@ -799,7 +799,7 @@ func (_ERC20Interface *ERC20InterfaceFilterer) WatchTransfer(opts *bind.WatchOpt
 const HeikeTokenABI = "[{\"constant\":true,\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"spender\",\"type\":\"address\"},{\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"name\":\"success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"from\",\"type\":\"address\"},{\"name\":\"to\",\"type\":\"address\"},{\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"name\":\"success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"_totalSupply\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"tokenOwner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"balance\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"acceptOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeSub\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"to\",\"type\":\"address\"},{\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"name\":\"success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeDiv\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"spender\",\"type\":\"address\"},{\"name\":\"tokens\",\"type\":\"uint256\"},{\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"approveAndCall\",\"outputs\":[{\"name\":\"success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeMul\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"newOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"tokenAddress\",\"type\":\"address\"},{\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"transferAnyERC20Token\",\"outputs\":[{\"name\":\"success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"tokenOwner\",\"type\":\"address\"},{\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"name\":\"remaining\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeAdd\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_to\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"tokenOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"}]"
 
 // HeikeTokenBin is the compiled bytecode used for deploying new contracts.
-const HeikeTokenBin = `0x608060405234801561001057600080fd5b5060008054600160a060020a031916331790556040805180820190915260058082527f4845494b4500000000000000000000000000000000000000000000000000000060209092019182526100679160029161014a565b5060408051808201909152600b8082527f4865696b6520546f6b656e00000000000000000000000000000000000000000060209092019182526100ac9160039161014a565b506004805460ff1916601217905569d3c21bcecceda10000006005819055735b872ee8aa4ed09b6b92f631f42d3aaf7622b53e6000818152600660209081527f82da9841d4e83afbfc64d5e6d830598f9007176e3fcde397c080e30afb1ea75a8490556040805194855251929391927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9281900390910190a36101e5565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061018b57805160ff19168380011785556101b8565b828001600101855582156101b8579182015b828111156101b857825182559160200191906001019061019d565b506101c49291506101c8565b5090565b6101e291905b808211156101c457600081556001016101ce565b90565b610b71806101f46000396000f3006080604052600436106101115763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166306fdde038114610116578063095ea7b3146101a057806318160ddd146101d857806323b872dd146101ff578063313ce567146102295780633eaaf86b1461025457806370a082311461026957806379ba50971461028a5780638da5cb5b146102a157806395d89b41146102d2578063a293d1e8146102e7578063a9059cbb14610302578063b5931f7c14610326578063cae9ca5114610341578063d05c78da146103aa578063d4ee1d90146103c5578063dc39d06d146103da578063dd62ed3e146103fe578063e6cb901314610425578063f2fde38b14610440575b600080fd5b34801561012257600080fd5b5061012b610461565b6040805160208082528351818301528351919283929083019185019080838360005b8381101561016557818101518382015260200161014d565b50505050905090810190601f1680156101925780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156101ac57600080fd5b506101c4600160a060020a03600435166024356104ef565b604080519115158252519081900360200190f35b3480156101e457600080fd5b506101ed610556565b60408051918252519081900360200190f35b34801561020b57600080fd5b506101c4600160a060020a0360043581169060243516604435610588565b34801561023557600080fd5b5061023e610681565b6040805160ff9092168252519081900360200190f35b34801561026057600080fd5b506101ed61068a565b34801561027557600080fd5b506101ed600160a060020a0360043516610690565b34801561029657600080fd5b5061029f6106ab565b005b3480156102ad57600080fd5b506102b6610733565b60408051600160a060020a039092168252519081900360200190f35b3480156102de57600080fd5b5061012b610742565b3480156102f357600080fd5b506101ed60043560243561079a565b34801561030e57600080fd5b506101c4600160a060020a03600435166024356107af565b34801561033257600080fd5b506101ed600435602435610853565b34801561034d57600080fd5b50604080516020600460443581810135601f81018490048402850184019095528484526101c4948235600160a060020a03169460248035953695946064949201919081908401838280828437509497506108749650505050505050565b3480156103b657600080fd5b506101ed6004356024356109d5565b3480156103d157600080fd5b506102b66109fa565b3480156103e657600080fd5b506101c4600160a060020a0360043516602435610a09565b34801561040a57600080fd5b506101ed600160a060020a0360043581169060243516610ac4565b34801561043157600080fd5b506101ed600435602435610aef565b34801561044c57600080fd5b5061029f600160a060020a0360043516610aff565b6003805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156104e75780601f106104bc576101008083540402835291602001916104e7565b820191906000526020600020905b8154815290600101906020018083116104ca57829003601f168201915b505050505081565b336000818152600760209081526040808320600160a060020a038716808552908352818420869055815186815291519394909390927f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925928290030190a35060015b92915050565b6000805260066020527f54cdd369e4e8a8515e52ca72ec816c2101831ad1f18bf44102ed171459c9b4f8546005540390565b600160a060020a0383166000908152600660205260408120546105ab908361079a565b600160a060020a03851660009081526006602090815260408083209390935560078152828220338352905220546105e2908361079a565b600160a060020a0380861660009081526007602090815260408083203384528252808320949094559186168152600690915220546106209083610aef565b600160a060020a0380851660008181526006602090815260409182902094909455805186815290519193928816927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef92918290030190a35060019392505050565b60045460ff1681565b60055481565b600160a060020a031660009081526006602052604090205490565b600154600160a060020a031633146106c257600080fd5b60015460008054604051600160a060020a0393841693909116917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600180546000805473ffffffffffffffffffffffffffffffffffffffff19908116600160a060020a03841617909155169055565b600054600160a060020a031681565b6002805460408051602060018416156101000260001901909316849004601f810184900484028201840190925281815292918301828280156104e75780601f106104bc576101008083540402835291602001916104e7565b6000828211156107a957600080fd5b50900390565b336000908152600660205260408120546107c9908361079a565b3360009081526006602052604080822092909255600160a060020a038516815220546107f59083610aef565b600160a060020a0384166000818152600660209081526040918290209390935580518581529051919233927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9281900390910190a350600192915050565b600080821161086157600080fd5b818381151561086c57fe5b049392505050565b336000818152600760209081526040808320600160a060020a038816808552908352818420879055815187815291519394909390927f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925928290030190a36040517f8f4ffcb10000000000000000000000000000000000000000000000000000000081523360048201818152602483018690523060448401819052608060648501908152865160848601528651600160a060020a038a1695638f4ffcb195948a94938a939192909160a490910190602085019080838360005b8381101561096457818101518382015260200161094c565b50505050905090810190601f1680156109915780820380516001836020036101000a031916815260200191505b5095505050505050600060405180830381600087803b1580156109b357600080fd5b505af11580156109c7573d6000803e3d6000fd5b506001979650505050505050565b8181028215806109ef57508183828115156109ec57fe5b04145b151561055057600080fd5b600154600160a060020a031681565b60008054600160a060020a03163314610a2157600080fd5b60008054604080517fa9059cbb000000000000000000000000000000000000000000000000000000008152600160a060020a0392831660048201526024810186905290519186169263a9059cbb926044808401936020939083900390910190829087803b158015610a9157600080fd5b505af1158015610aa5573d6000803e3d6000fd5b505050506040513d6020811015610abb57600080fd5b50519392505050565b600160a060020a03918216600090815260076020908152604080832093909416825291909152205490565b8181018281101561055057600080fd5b600054600160a060020a03163314610b1657600080fd5b6001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555600a165627a7a723058203eafab0d2a26a84e5caf1050ccc9c649fcf03f997c11b62d568e3915690964660029`
+const HeikeTokenBin = `0x608060405234801561001057600080fd5b5060008054600160a060020a031916331790556040805180820190915260058082527f4845494b4500000000000000000000000000000000000000000000000000000060209092019182526100679160029161014a565b5060408051808201909152600b8082527f4865696b6520546f6b656e00000000000000000000000000000000000000000060209092019182526100ac9160039161014a565b506004805460ff1916601217905569d3c21bcecceda10000006005819055735b872ee8aa4ed09b6b92f631f42d3aaf7622b53e6000818152600660209081527f82da9841d4e83afbfc64d5e6d830598f9007176e3fcde397c080e30afb1ea75a8490556040805194855251929391927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9281900390910190a36101e5565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061018b57805160ff19168380011785556101b8565b828001600101855582156101b8579182015b828111156101b857825182559160200191906001019061019d565b506101c49291506101c8565b5090565b6101e291905b808211156101c457600081556001016101ce565b90565b610b71806101f46000396000f3006080604052600436106101115763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166306fdde038114610116578063095ea7b3146101a057806318160ddd146101d857806323b872dd146101ff578063313ce567146102295780633eaaf86b1461025457806370a082311461026957806379ba50971461028a5780638da5cb5b146102a157806395d89b41146102d2578063a293d1e8146102e7578063a9059cbb14610302578063b5931f7c14610326578063cae9ca5114610341578063d05c78da146103aa578063d4ee1d90146103c5578063dc39d06d146103da578063dd62ed3e146103fe578063e6cb901314610425578063f2fde38b14610440575b600080fd5b34801561012257600080fd5b5061012b610461565b6040805160208082528351818301528351919283929083019185019080838360005b8381101561016557818101518382015260200161014d565b50505050905090810190601f1680156101925780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156101ac57600080fd5b506101c4600160a060020a03600435166024356104ef565b604080519115158252519081900360200190f35b3480156101e457600080fd5b506101ed610556565b60408051918252519081900360200190f35b34801561020b57600080fd5b506101c4600160a060020a0360043581169060243516604435610588565b34801561023557600080fd5b5061023e610681565b6040805160ff9092168252519081900360200190f35b34801561026057600080fd5b506101ed61068a565b34801561027557600080fd5b506101ed600160a060020a0360043516610690565b34801561029657600080fd5b5061029f6106ab565b005b3480156102ad57600080fd5b506102b6610733565b60408051600160a060020a039092168252519081900360200190f35b3480156102de57600080fd5b5061012b610742565b3480156102f357600080fd5b506101ed60043560243561079a565b34801561030e57600080fd5b506101c4600160a060020a03600435166024356107af565b34801561033257600080fd5b506101ed600435602435610853565b34801561034d57600080fd5b50604080516020600460443581810135601f81018490048402850184019095528484526101c4948235600160a060020a03169460248035953695946064949201919081908401838280828437509497506108749650505050505050565b3480156103b657600080fd5b506101ed6004356024356109d5565b3480156103d157600080fd5b506102b66109fa565b3480156103e657600080fd5b506101c4600160a060020a0360043516602435610a09565b34801561040a57600080fd5b506101ed600160a060020a0360043581169060243516610ac4565b34801561043157600080fd5b506101ed600435602435610aef565b34801561044c57600080fd5b5061029f600160a060020a0360043516610aff565b6003805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156104e75780601f106104bc576101008083540402835291602001916104e7565b820191906000526020600020905b8154815290600101906020018083116104ca57829003601f168201915b505050505081565b336000818152600760209081526040808320600160a060020a038716808552908352818420869055815186815291519394909390927f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925928290030190a35060015b92915050565b6000805260066020527f54cdd369e4e8a8515e52ca72ec816c2101831ad1f18bf44102ed171459c9b4f8546005540390565b600160a060020a0383166000908152600660205260408120546105ab908361079a565b600160a060020a03851660009081526006602090815260408083209390935560078152828220338352905220546105e2908361079a565b600160a060020a0380861660009081526007602090815260408083203384528252808320949094559186168152600690915220546106209083610aef565b600160a060020a0380851660008181526006602090815260409182902094909455805186815290519193928816927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef92918290030190a35060019392505050565b60045460ff1681565b60055481565b600160a060020a031660009081526006602052604090205490565b600154600160a060020a031633146106c257600080fd5b60015460008054604051600160a060020a0393841693909116917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600180546000805473ffffffffffffffffffffffffffffffffffffffff19908116600160a060020a03841617909155169055565b600054600160a060020a031681565b6002805460408051602060018416156101000260001901909316849004601f810184900484028201840190925281815292918301828280156104e75780601f106104bc576101008083540402835291602001916104e7565b6000828211156107a957600080fd5b50900390565b336000908152600660205260408120546107c9908361079a565b3360009081526006602052604080822092909255600160a060020a038516815220546107f59083610aef565b600160a060020a0384166000818152600660209081526040918290209390935580518581529051919233927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9281900390910190a350600192915050565b600080821161086157600080fd5b818381151561086c57fe5b049392505050565b336000818152600760209081526040808320600160a060020a038816808552908352818420879055815187815291519394909390927f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925928290030190a36040517f8f4ffcb10000000000000000000000000000000000000000000000000000000081523360048201818152602483018690523060448401819052608060648501908152865160848601528651600160a060020a038a1695638f4ffcb195948a94938a939192909160a490910190602085019080838360005b8381101561096457818101518382015260200161094c565b50505050905090810190601f1680156109915780820380516001836020036101000a031916815260200191505b5095505050505050600060405180830381600087803b1580156109b357600080fd5b505af11580156109c7573d6000803e3d6000fd5b506001979650505050505050565b8181028215806109ef57508183828115156109ec57fe5b04145b151561055057600080fd5b600154600160a060020a031681565b60008054600160a060020a03163314610a2157600080fd5b60008054604080517fa9059cbb000000000000000000000000000000000000000000000000000000008152600160a060020a0392831660048201526024810186905290519186169263a9059cbb926044808401936020939083900390910190829087803b158015610a9157600080fd5b505af1158015610aa5573d6000803e3d6000fd5b505050506040513d6020811015610abb57600080fd5b50519392505050565b600160a060020a03918216600090815260076020908152604080832093909416825291909152205490565b8181018281101561055057600080fd5b600054600160a060020a03163314610b1657600080fd5b6001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555600a165627a7a723058202504d16d995ef98b16c122d426c2f85626a761f15c2c35632cca359367b11f530029`
 
 // DeployHeikeToken deploys a new Ethereum contract, binding an instance of HeikeToken to it.
 func DeployHeikeToken(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *HeikeToken, error) {
@@ -1870,7 +1870,7 @@ func (_HeikeToken *HeikeTokenFilterer) WatchTransfer(opts *bind.WatchOpts, sink 
 const OwnedABI = "[{\"constant\":false,\"inputs\":[],\"name\":\"acceptOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"newOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"_to\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}]"
 
 // OwnedBin is the compiled bytecode used for deploying new contracts.
-const OwnedBin = `0x608060405234801561001057600080fd5b5060008054600160a060020a031916331790556101fc806100326000396000f3006080604052600436106100615763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166379ba509781146100665780638da5cb5b1461007d578063d4ee1d90146100ae578063f2fde38b146100c3575b600080fd5b34801561007257600080fd5b5061007b6100e4565b005b34801561008957600080fd5b5061009261016c565b60408051600160a060020a039092168252519081900360200190f35b3480156100ba57600080fd5b5061009261017b565b3480156100cf57600080fd5b5061007b600160a060020a036004351661018a565b600154600160a060020a031633146100fb57600080fd5b60015460008054604051600160a060020a0393841693909116917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600180546000805473ffffffffffffffffffffffffffffffffffffffff19908116600160a060020a03841617909155169055565b600054600160a060020a031681565b600154600160a060020a031681565b600054600160a060020a031633146101a157600080fd5b6001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555600a165627a7a7230582078530eda83c9d5f117aa325db6cb33d304992a274700ed00a4c48426df67fbdf0029`
+const OwnedBin = `0x608060405234801561001057600080fd5b5060008054600160a060020a031916331790556101fc806100326000396000f3006080604052600436106100615763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166379ba509781146100665780638da5cb5b1461007d578063d4ee1d90146100ae578063f2fde38b146100c3575b600080fd5b34801561007257600080fd5b5061007b6100e4565b005b34801561008957600080fd5b5061009261016c565b60408051600160a060020a039092168252519081900360200190f35b3480156100ba57600080fd5b5061009261017b565b3480156100cf57600080fd5b5061007b600160a060020a036004351661018a565b600154600160a060020a031633146100fb57600080fd5b60015460008054604051600160a060020a0393841693909116917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600180546000805473ffffffffffffffffffffffffffffffffffffffff19908116600160a060020a03841617909155169055565b600054600160a060020a031681565b600154600160a060020a031681565b600054600160a060020a031633146101a157600080fd5b6001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555600a165627a7a723058202fc7b8df52ecc6cd4f2d2905c3fbbd4adc23a347fba168f99564aaf939764fee0029`
 
 // DeployOwned deploys a new Ethereum contract, binding an instance of Owned to it.
 func DeployOwned(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *Owned, error) {
@@ -2262,123 +2262,123 @@ func (_Owned *OwnedFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sin
 	}), nil
 }
 
-// SafeMathABI is the input ABI used to generate the binding from.
-const SafeMathABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeSub\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeDiv\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeMul\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeAdd\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"}]"
+// SafeMathTokenABI is the input ABI used to generate the binding from.
+const SafeMathTokenABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeSub\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeDiv\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeMul\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256\"},{\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"safeAdd\",\"outputs\":[{\"name\":\"c\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"}]"
 
-// SafeMathBin is the compiled bytecode used for deploying new contracts.
-const SafeMathBin = `0x608060405234801561001057600080fd5b50610181806100206000396000f3006080604052600436106100615763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663a293d1e88114610066578063b5931f7c14610093578063d05c78da146100ae578063e6cb9013146100c9575b600080fd5b34801561007257600080fd5b506100816004356024356100e4565b60408051918252519081900360200190f35b34801561009f57600080fd5b506100816004356024356100f9565b3480156100ba57600080fd5b5061008160043560243561011a565b3480156100d557600080fd5b50610081600435602435610145565b6000828211156100f357600080fd5b50900390565b600080821161010757600080fd5b818381151561011257fe5b049392505050565b818102821580610134575081838281151561013157fe5b04145b151561013f57600080fd5b92915050565b8181018281101561013f57600080fd00a165627a7a72305820197c641a2dc36cd77967358decff6f9043674137ef4f86aa13f69dac776780d70029`
+// SafeMathTokenBin is the compiled bytecode used for deploying new contracts.
+const SafeMathTokenBin = `0x608060405234801561001057600080fd5b50610181806100206000396000f3006080604052600436106100615763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663a293d1e88114610066578063b5931f7c14610093578063d05c78da146100ae578063e6cb9013146100c9575b600080fd5b34801561007257600080fd5b506100816004356024356100e4565b60408051918252519081900360200190f35b34801561009f57600080fd5b506100816004356024356100f9565b3480156100ba57600080fd5b5061008160043560243561011a565b3480156100d557600080fd5b50610081600435602435610145565b6000828211156100f357600080fd5b50900390565b600080821161010757600080fd5b818381151561011257fe5b049392505050565b818102821580610134575081838281151561013157fe5b04145b151561013f57600080fd5b92915050565b8181018281101561013f57600080fd00a165627a7a72305820b77f1cec5ee34bbdb363aa3d7a1d8c167412e3c264be90f85af9e3f2f0b8ddf40029`
 
-// DeploySafeMath deploys a new Ethereum contract, binding an instance of SafeMath to it.
-func DeploySafeMath(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *SafeMath, error) {
-	parsed, err := abi.JSON(strings.NewReader(SafeMathABI))
+// DeploySafeMathToken deploys a new Ethereum contract, binding an instance of SafeMathToken to it.
+func DeploySafeMathToken(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *SafeMathToken, error) {
+	parsed, err := abi.JSON(strings.NewReader(SafeMathTokenABI))
 	if err != nil {
 		return common.Address{}, nil, nil, err
 	}
-	address, tx, contract, err := bind.DeployContract(auth, parsed, common.FromHex(SafeMathBin), backend)
+	address, tx, contract, err := bind.DeployContract(auth, parsed, common.FromHex(SafeMathTokenBin), backend)
 	if err != nil {
 		return common.Address{}, nil, nil, err
 	}
-	return address, tx, &SafeMath{SafeMathCaller: SafeMathCaller{contract: contract}, SafeMathTransactor: SafeMathTransactor{contract: contract}, SafeMathFilterer: SafeMathFilterer{contract: contract}}, nil
+	return address, tx, &SafeMathToken{SafeMathTokenCaller: SafeMathTokenCaller{contract: contract}, SafeMathTokenTransactor: SafeMathTokenTransactor{contract: contract}, SafeMathTokenFilterer: SafeMathTokenFilterer{contract: contract}}, nil
 }
 
-// SafeMath is an auto generated Go binding around an Ethereum contract.
-type SafeMath struct {
-	SafeMathCaller     // Read-only binding to the contract
-	SafeMathTransactor // Write-only binding to the contract
-	SafeMathFilterer   // Log filterer for contract events
+// SafeMathToken is an auto generated Go binding around an Ethereum contract.
+type SafeMathToken struct {
+	SafeMathTokenCaller     // Read-only binding to the contract
+	SafeMathTokenTransactor // Write-only binding to the contract
+	SafeMathTokenFilterer   // Log filterer for contract events
 }
 
-// SafeMathCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SafeMathCaller struct {
+// SafeMathTokenCaller is an auto generated read-only Go binding around an Ethereum contract.
+type SafeMathTokenCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SafeMathTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SafeMathTransactor struct {
+// SafeMathTokenTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type SafeMathTokenTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SafeMathFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SafeMathFilterer struct {
+// SafeMathTokenFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type SafeMathTokenFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SafeMathSession is an auto generated Go binding around an Ethereum contract,
+// SafeMathTokenSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SafeMathSession struct {
-	Contract     *SafeMath         // Generic contract binding to set the session for
+type SafeMathTokenSession struct {
+	Contract     *SafeMathToken    // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SafeMathCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// SafeMathTokenCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SafeMathCallerSession struct {
-	Contract *SafeMathCaller // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts   // Call options to use throughout this session
+type SafeMathTokenCallerSession struct {
+	Contract *SafeMathTokenCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts        // Call options to use throughout this session
 }
 
-// SafeMathTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// SafeMathTokenTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SafeMathTransactorSession struct {
-	Contract     *SafeMathTransactor // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts   // Transaction auth options to use throughout this session
+type SafeMathTokenTransactorSession struct {
+	Contract     *SafeMathTokenTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts        // Transaction auth options to use throughout this session
 }
 
-// SafeMathRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SafeMathRaw struct {
-	Contract *SafeMath // Generic contract binding to access the raw methods on
+// SafeMathTokenRaw is an auto generated low-level Go binding around an Ethereum contract.
+type SafeMathTokenRaw struct {
+	Contract *SafeMathToken // Generic contract binding to access the raw methods on
 }
 
-// SafeMathCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SafeMathCallerRaw struct {
-	Contract *SafeMathCaller // Generic read-only contract binding to access the raw methods on
+// SafeMathTokenCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type SafeMathTokenCallerRaw struct {
+	Contract *SafeMathTokenCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SafeMathTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SafeMathTransactorRaw struct {
-	Contract *SafeMathTransactor // Generic write-only contract binding to access the raw methods on
+// SafeMathTokenTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type SafeMathTokenTransactorRaw struct {
+	Contract *SafeMathTokenTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSafeMath creates a new instance of SafeMath, bound to a specific deployed contract.
-func NewSafeMath(address common.Address, backend bind.ContractBackend) (*SafeMath, error) {
-	contract, err := bindSafeMath(address, backend, backend, backend)
+// NewSafeMathToken creates a new instance of SafeMathToken, bound to a specific deployed contract.
+func NewSafeMathToken(address common.Address, backend bind.ContractBackend) (*SafeMathToken, error) {
+	contract, err := bindSafeMathToken(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &SafeMath{SafeMathCaller: SafeMathCaller{contract: contract}, SafeMathTransactor: SafeMathTransactor{contract: contract}, SafeMathFilterer: SafeMathFilterer{contract: contract}}, nil
+	return &SafeMathToken{SafeMathTokenCaller: SafeMathTokenCaller{contract: contract}, SafeMathTokenTransactor: SafeMathTokenTransactor{contract: contract}, SafeMathTokenFilterer: SafeMathTokenFilterer{contract: contract}}, nil
 }
 
-// NewSafeMathCaller creates a new read-only instance of SafeMath, bound to a specific deployed contract.
-func NewSafeMathCaller(address common.Address, caller bind.ContractCaller) (*SafeMathCaller, error) {
-	contract, err := bindSafeMath(address, caller, nil, nil)
+// NewSafeMathTokenCaller creates a new read-only instance of SafeMathToken, bound to a specific deployed contract.
+func NewSafeMathTokenCaller(address common.Address, caller bind.ContractCaller) (*SafeMathTokenCaller, error) {
+	contract, err := bindSafeMathToken(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SafeMathCaller{contract: contract}, nil
+	return &SafeMathTokenCaller{contract: contract}, nil
 }
 
-// NewSafeMathTransactor creates a new write-only instance of SafeMath, bound to a specific deployed contract.
-func NewSafeMathTransactor(address common.Address, transactor bind.ContractTransactor) (*SafeMathTransactor, error) {
-	contract, err := bindSafeMath(address, nil, transactor, nil)
+// NewSafeMathTokenTransactor creates a new write-only instance of SafeMathToken, bound to a specific deployed contract.
+func NewSafeMathTokenTransactor(address common.Address, transactor bind.ContractTransactor) (*SafeMathTokenTransactor, error) {
+	contract, err := bindSafeMathToken(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SafeMathTransactor{contract: contract}, nil
+	return &SafeMathTokenTransactor{contract: contract}, nil
 }
 
-// NewSafeMathFilterer creates a new log filterer instance of SafeMath, bound to a specific deployed contract.
-func NewSafeMathFilterer(address common.Address, filterer bind.ContractFilterer) (*SafeMathFilterer, error) {
-	contract, err := bindSafeMath(address, nil, nil, filterer)
+// NewSafeMathTokenFilterer creates a new log filterer instance of SafeMathToken, bound to a specific deployed contract.
+func NewSafeMathTokenFilterer(address common.Address, filterer bind.ContractFilterer) (*SafeMathTokenFilterer, error) {
+	contract, err := bindSafeMathToken(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SafeMathFilterer{contract: contract}, nil
+	return &SafeMathTokenFilterer{contract: contract}, nil
 }
 
-// bindSafeMath binds a generic wrapper to an already deployed contract.
-func bindSafeMath(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SafeMathABI))
+// bindSafeMathToken binds a generic wrapper to an already deployed contract.
+func bindSafeMathToken(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(SafeMathTokenABI))
 	if err != nil {
 		return nil, err
 	}
@@ -2389,140 +2389,140 @@ func bindSafeMath(address common.Address, caller bind.ContractCaller, transactor
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_SafeMath *SafeMathRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
-	return _SafeMath.Contract.SafeMathCaller.contract.Call(opts, result, method, params...)
+func (_SafeMathToken *SafeMathTokenRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
+	return _SafeMathToken.Contract.SafeMathTokenCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_SafeMath *SafeMathRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _SafeMath.Contract.SafeMathTransactor.contract.Transfer(opts)
+func (_SafeMathToken *SafeMathTokenRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _SafeMathToken.Contract.SafeMathTokenTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_SafeMath *SafeMathRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _SafeMath.Contract.SafeMathTransactor.contract.Transact(opts, method, params...)
+func (_SafeMathToken *SafeMathTokenRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _SafeMathToken.Contract.SafeMathTokenTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_SafeMath *SafeMathCallerRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
-	return _SafeMath.Contract.contract.Call(opts, result, method, params...)
+func (_SafeMathToken *SafeMathTokenCallerRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
+	return _SafeMathToken.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_SafeMath *SafeMathTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _SafeMath.Contract.contract.Transfer(opts)
+func (_SafeMathToken *SafeMathTokenTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _SafeMathToken.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_SafeMath *SafeMathTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _SafeMath.Contract.contract.Transact(opts, method, params...)
+func (_SafeMathToken *SafeMathTokenTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _SafeMathToken.Contract.contract.Transact(opts, method, params...)
 }
 
 // SafeAdd is a free data retrieval call binding the contract method 0xe6cb9013.
 //
 // Solidity: function safeAdd(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathCaller) SafeAdd(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
+func (_SafeMathToken *SafeMathTokenCaller) SafeAdd(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _SafeMath.contract.Call(opts, out, "safeAdd", a, b)
+	err := _SafeMathToken.contract.Call(opts, out, "safeAdd", a, b)
 	return *ret0, err
 }
 
 // SafeAdd is a free data retrieval call binding the contract method 0xe6cb9013.
 //
 // Solidity: function safeAdd(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathSession) SafeAdd(a *big.Int, b *big.Int) (*big.Int, error) {
-	return _SafeMath.Contract.SafeAdd(&_SafeMath.CallOpts, a, b)
+func (_SafeMathToken *SafeMathTokenSession) SafeAdd(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _SafeMathToken.Contract.SafeAdd(&_SafeMathToken.CallOpts, a, b)
 }
 
 // SafeAdd is a free data retrieval call binding the contract method 0xe6cb9013.
 //
 // Solidity: function safeAdd(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathCallerSession) SafeAdd(a *big.Int, b *big.Int) (*big.Int, error) {
-	return _SafeMath.Contract.SafeAdd(&_SafeMath.CallOpts, a, b)
+func (_SafeMathToken *SafeMathTokenCallerSession) SafeAdd(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _SafeMathToken.Contract.SafeAdd(&_SafeMathToken.CallOpts, a, b)
 }
 
 // SafeDiv is a free data retrieval call binding the contract method 0xb5931f7c.
 //
 // Solidity: function safeDiv(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathCaller) SafeDiv(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
+func (_SafeMathToken *SafeMathTokenCaller) SafeDiv(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _SafeMath.contract.Call(opts, out, "safeDiv", a, b)
+	err := _SafeMathToken.contract.Call(opts, out, "safeDiv", a, b)
 	return *ret0, err
 }
 
 // SafeDiv is a free data retrieval call binding the contract method 0xb5931f7c.
 //
 // Solidity: function safeDiv(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathSession) SafeDiv(a *big.Int, b *big.Int) (*big.Int, error) {
-	return _SafeMath.Contract.SafeDiv(&_SafeMath.CallOpts, a, b)
+func (_SafeMathToken *SafeMathTokenSession) SafeDiv(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _SafeMathToken.Contract.SafeDiv(&_SafeMathToken.CallOpts, a, b)
 }
 
 // SafeDiv is a free data retrieval call binding the contract method 0xb5931f7c.
 //
 // Solidity: function safeDiv(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathCallerSession) SafeDiv(a *big.Int, b *big.Int) (*big.Int, error) {
-	return _SafeMath.Contract.SafeDiv(&_SafeMath.CallOpts, a, b)
+func (_SafeMathToken *SafeMathTokenCallerSession) SafeDiv(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _SafeMathToken.Contract.SafeDiv(&_SafeMathToken.CallOpts, a, b)
 }
 
 // SafeMul is a free data retrieval call binding the contract method 0xd05c78da.
 //
 // Solidity: function safeMul(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathCaller) SafeMul(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
+func (_SafeMathToken *SafeMathTokenCaller) SafeMul(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _SafeMath.contract.Call(opts, out, "safeMul", a, b)
+	err := _SafeMathToken.contract.Call(opts, out, "safeMul", a, b)
 	return *ret0, err
 }
 
 // SafeMul is a free data retrieval call binding the contract method 0xd05c78da.
 //
 // Solidity: function safeMul(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathSession) SafeMul(a *big.Int, b *big.Int) (*big.Int, error) {
-	return _SafeMath.Contract.SafeMul(&_SafeMath.CallOpts, a, b)
+func (_SafeMathToken *SafeMathTokenSession) SafeMul(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _SafeMathToken.Contract.SafeMul(&_SafeMathToken.CallOpts, a, b)
 }
 
 // SafeMul is a free data retrieval call binding the contract method 0xd05c78da.
 //
 // Solidity: function safeMul(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathCallerSession) SafeMul(a *big.Int, b *big.Int) (*big.Int, error) {
-	return _SafeMath.Contract.SafeMul(&_SafeMath.CallOpts, a, b)
+func (_SafeMathToken *SafeMathTokenCallerSession) SafeMul(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _SafeMathToken.Contract.SafeMul(&_SafeMathToken.CallOpts, a, b)
 }
 
 // SafeSub is a free data retrieval call binding the contract method 0xa293d1e8.
 //
 // Solidity: function safeSub(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathCaller) SafeSub(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
+func (_SafeMathToken *SafeMathTokenCaller) SafeSub(opts *bind.CallOpts, a *big.Int, b *big.Int) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _SafeMath.contract.Call(opts, out, "safeSub", a, b)
+	err := _SafeMathToken.contract.Call(opts, out, "safeSub", a, b)
 	return *ret0, err
 }
 
 // SafeSub is a free data retrieval call binding the contract method 0xa293d1e8.
 //
 // Solidity: function safeSub(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathSession) SafeSub(a *big.Int, b *big.Int) (*big.Int, error) {
-	return _SafeMath.Contract.SafeSub(&_SafeMath.CallOpts, a, b)
+func (_SafeMathToken *SafeMathTokenSession) SafeSub(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _SafeMathToken.Contract.SafeSub(&_SafeMathToken.CallOpts, a, b)
 }
 
 // SafeSub is a free data retrieval call binding the contract method 0xa293d1e8.
 //
 // Solidity: function safeSub(a uint256, b uint256) constant returns(c uint256)
-func (_SafeMath *SafeMathCallerSession) SafeSub(a *big.Int, b *big.Int) (*big.Int, error) {
-	return _SafeMath.Contract.SafeSub(&_SafeMath.CallOpts, a, b)
+func (_SafeMathToken *SafeMathTokenCallerSession) SafeSub(a *big.Int, b *big.Int) (*big.Int, error) {
+	return _SafeMathToken.Contract.SafeSub(&_SafeMathToken.CallOpts, a, b)
 }

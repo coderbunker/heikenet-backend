@@ -3,7 +3,7 @@ pragma solidity ^0.4.24;
 // ----------------------------------------------------------------------------
 // Safe maths
 // ----------------------------------------------------------------------------
-contract SafeMath {
+contract SafeMathToken {
     function safeAdd(uint a, uint b) public pure returns (uint c) {
         c = a + b;
         require(c >= a);
@@ -84,7 +84,7 @@ contract Owned {
 // ERC20 Token, with the addition of symbol, name and decimals and assisted
 // token transfers
 // ----------------------------------------------------------------------------
-contract HeikeToken is ERC20Interface, Owned, SafeMath {
+contract HeikeToken is ERC20Interface, Owned, SafeMathToken {
     string public symbol;
     string public  name;
     uint8 public decimals;
