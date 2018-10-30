@@ -1,7 +1,8 @@
 package main
 
 import (
-	contract "github.com/coderbunker/heike-network/contracts/erc20"
+	erc20_contract "github.com/coderbunker/heike-network/contracts/erc20"
+	// retainer_contract "github.com/coderbunker/heike-network/contracts/retainer"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
@@ -54,22 +55,22 @@ func main() {
 		log.Fatalf("unable to connect to network:%v\n", err)
 	}
 
-	// Instantiate the contract
-	contract, err := contract.NewERC20(common.HexToAddress(dai), blockchain)
-	if err != nil {
-		log.Fatalf("failed to instantiate a contract: %v", err)
-	}
-
 	// Get credentials for the account
 	auth, err := bind.NewTransactor(strings.NewReader(key), secret)
 	if err != nil {
 		log.Fatalf("failed to create authorized transactor: %v", err)
 	}
 
+	// Instantiate the contract
+	erc20_instance, err := erc20_contract.NewERC20(common.HexToAddress(dai), blockchain)
+	if err != nil {
+		log.Fatalf("failed to instantiate a contract: %v", err)
+	}
+
 	// Call approve function from smart contract
-	contract.Approve(&bind.TransactOpts{
+	erc20_instance.Approve(&bind.TransactOpts{
 		From:   auth.From,
 		Signer: auth.Signer,
 		Value:  nil,
-	}, common.HexToAddress(retainer), big.NewInt(8888888))
+	}, common.HexToAddress(retainer), big.NewInt(4444))
 }
