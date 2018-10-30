@@ -44,7 +44,7 @@ contract HeikeRetainer is Ownable {
         return true;
     }
 
-    function fundRetainer(bytes32 symbol_, uint256 amount_) public {
+    function fundRetainer(bytes32 symbol_, uint256 amount_) public onlyOwner {
         require(tokens[symbol_] != 0x0);
         require(amount_ > 0);
 
@@ -77,7 +77,7 @@ contract HeikeRetainer is Ownable {
         emit TransactionSuccessful(from_, to_, amount_);
     }
 
-    function withdrawRetainer(bytes32 symbol_, address to_, uint256 amount_) public{
+    function withdrawRetainer(bytes32 symbol_, address to_, uint256 amount_) public onlyOwner {
 
         address contract_ = tokens[symbol_];
         ERC20Interface =  ERC20(contract_);
