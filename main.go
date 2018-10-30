@@ -55,7 +55,7 @@ func main() {
 	}
 
 	// Instantiate the contract
-	contract, err := contract.NewIERC20(common.HexToAddress(dai), blockchain)
+	contract, err := contract.NewERC20(common.HexToAddress(dai), blockchain)
 	if err != nil {
 		log.Fatalf("failed to instantiate a contract: %v", err)
 	}
@@ -71,5 +71,5 @@ func main() {
 		From:   auth.From,
 		Signer: auth.Signer,
 		Value:  nil,
-	}, common.HexToAddress(retainer), big.NewInt(1000000000000000))
+	}, common.HexToAddress(retainer), big.NewInt(8888888))
 }
