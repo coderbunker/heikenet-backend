@@ -1,54 +1,25 @@
 package controllers
 
 import (
-	"net/http"
-
-	"github.com/labstack/echo"
-	"golang.org/x/crypto/bcrypt"
-
-	mid "github.com/coderbunker/heikenet-backend/middleware"
 	"github.com/coderbunker/heikenet-backend/models"
+	"github.com/labstack/echo"
+	"net/http"
 )
 
 func CreateUser(c echo.Context) error {
-	u := new(models.NewUser)
-	if err := c.Bind(u); err != nil {
+	new_user := new(models.NewUser)
+	if err := c.Bind(new_user); err != nil {
 		return c.JSON(http.StatusUnprocessableEntity, map[string]string{
 			"error": "invalid json",
 		})
 	}
-
-	if u.Name == "" || u.Email == "" || len(u.Password) == 0 {
-		return c.JSON(http.StatusUnprocessableEntity, map[string]string{
-			"error": "invalid account details",
-		})
-	}
-
-	db, err := mid.GetDB(c)
+	user, err := models.CreateUser(c, new_user)
 	if err != nil {
-		return err
-	}
-
-	var user models.User
-	if db.First(&user, "email = ?", u.Email).RecordNotFound() {
-		hpassword, err := bcrypt.GenerateFromPassword([]byte(u.Password), bcrypt.DefaultCost)
-		if err != nil {
-			return err
-		}
-
-		user = models.User{
-			Name:     u.Name,
-			Email:    u.Email,
-			Password: hpassword,
-		}
-		db.Create(&user)
-
-		return c.JSON(http.StatusCreated, user)
-	} else {
 		return c.JSON(http.StatusConflict, map[string]string{
-			"error": "user exists",
+			"error": "can't create user",
 		})
 	}
+	return c.JSON(http.StatusCreated, user)
 }
 
 func GetUser(c echo.Context) error {
