@@ -20,6 +20,11 @@ type (
 		Email    string `json:"email"`
 		Password string `json:"password"`
 	}
+
+	LoginUser struct {
+		Email    string `json:"email"`
+		Password string `json:"password"`
+	}
 )
 
 func CreateUser(db *gorm.DB, new_user *NewUser) (*User, error) {

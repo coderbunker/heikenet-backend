@@ -47,6 +47,7 @@ func main() {
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	e.Use(mid.SetSecret(config.Secret))
 	e.Use(mid.SetDB(db))
 
 	api := e.Group("/api/v1")

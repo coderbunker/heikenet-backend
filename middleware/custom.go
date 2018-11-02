@@ -26,20 +26,20 @@ func SetDB(db *gorm.DB) echo.MiddlewareFunc {
 	}
 }
 
-// func GetSecret(c echo.Context) (string, error) {
-// 	secret, ok := c.Get("secret").(string)
-// 	if !ok {
-// 		return "", errors.New("no secret in context")
-// 	}
-// 	return secret, nil
-// }
-//
-// func SetSecret(secret string) echo.MiddlewareFunc {
-// 	return func(next echo.HandlerFunc) echo.HandlerFunc {
-// 		return func(c echo.Context) error {
-// 			c.Set("secret", secret)
-// 			next(c)
-// 			return nil
-// 		}
-// 	}
-// }
+func GetSecret(c echo.Context) (string, error) {
+	secret, ok := c.Get("secret").(string)
+	if !ok {
+		return "", errors.New("no secret in context")
+	}
+	return secret, nil
+}
+
+func SetSecret(secret string) echo.MiddlewareFunc {
+	return func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			c.Set("secret", secret)
+			next(c)
+			return nil
+		}
+	}
+}
