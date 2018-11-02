@@ -27,7 +27,6 @@ type app_config struct {
 }
 
 func main() {
-	// get all the env vars
 	config := app_config{}
 	err := env.Parse(&config)
 	if err != nil {
@@ -40,6 +39,7 @@ func main() {
 	}
 	defer db.Close()
 
+	// this is for dev
 	db.AutoMigrate(&models.User{})
 	db.DropTable(&models.User{})
 	db.CreateTable(&models.User{})
@@ -49,13 +49,11 @@ func main() {
 	e.Use(middleware.Recover())
 	e.Use(mid.SetDB(db))
 
-	e.GET("/", controllers.Home)
-
 	api := e.Group("/api/v1")
 	api.POST("/login", controllers.Login)
 
 	users := api.Group("/users")
-	users.POST("/", controllers.CreateUser)
+	users.POST("", controllers.CreateUser)
 	// users.Use(middleware.JWT([]byte(secret)))
 	users.GET("/:id", controllers.GetUser)
 	users.PUT("/:id", controllers.UpdateUser)
