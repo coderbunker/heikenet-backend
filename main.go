@@ -3,12 +3,11 @@ package main
 import (
 	"log"
 
+	"github.com/caarlos0/env"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
-	// "github.com/dgrijalva/jwt-go"
-	"github.com/caarlos0/env"
 
 	"github.com/coderbunker/heikenet-backend/controllers"
 	mid "github.com/coderbunker/heikenet-backend/middleware"
