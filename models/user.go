@@ -2,17 +2,21 @@ package models
 
 import (
 	"errors"
+	"time"
 
 	"github.com/jinzhu/gorm"
+	uuid "github.com/satori/go.uuid"
 	"golang.org/x/crypto/bcrypt"
 )
 
 type (
 	User struct {
-		ID       uint   `json:"id"`
-		Name     string `json:"name"`
-		Email    string `json:"email"`
-		Password []byte `json:"-"`
+		ID        string    `json:"id" gorm:"type:uuid;primary_key;default:uuid_generate_v4()"`
+		Name      string    `json:"name"`
+		Email     string    `json:"email"`
+		Password  []byte    `json:"-"`
+		CreatedAt time.Time `json:"created_at"`
+		UpdatedAt time.Time `json:"updated_at"`
 	}
 
 	NewUser struct {
@@ -52,7 +56,7 @@ func CreateUser(db *gorm.DB, new_user *NewUser) (*User, error) {
 	}
 }
 
-func GetUser(db *gorm.DB, id int) (*User, error) {
+func GetUser(db *gorm.DB, id uuid.UUID) (*User, error) {
 	var user User
 	if db.First(&user, "id = ?", id).RecordNotFound() {
 		return nil, errors.New("user not found")
@@ -61,7 +65,7 @@ func GetUser(db *gorm.DB, id int) (*User, error) {
 	}
 }
 
-func UpdateUser(db *gorm.DB, id int, new_user *NewUser) (*User, error) {
+func UpdateUser(db *gorm.DB, id uuid.UUID, new_user *NewUser) (*User, error) {
 	if new_user.Name == "" || new_user.Email == "" || new_user.Password == "" {
 		return nil, errors.New("invalid account details")
 	}
@@ -87,7 +91,7 @@ func UpdateUser(db *gorm.DB, id int, new_user *NewUser) (*User, error) {
 	}
 }
 
-func DeleteUser(db *gorm.DB, id int) error {
+func DeleteUser(db *gorm.DB, id uuid.UUID) error {
 	var user User
 	if db.First(&user, "id = ?", id).RecordNotFound() {
 		return errors.New("user not found")

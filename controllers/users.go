@@ -3,9 +3,9 @@ package controllers
 import (
 	"log"
 	"net/http"
-	"strconv"
 
 	"github.com/labstack/echo"
+	uuid "github.com/satori/go.uuid"
 
 	mid "github.com/coderbunker/heikenet-backend/middleware"
 	"github.com/coderbunker/heikenet-backend/models"
@@ -30,12 +30,14 @@ func CreateUser(c echo.Context) error {
 			"error": err.Error(),
 		})
 	} else {
-		return c.JSON(http.StatusCreated, user)
+		return c.JSON(http.StatusCreated, map[string]string{
+			"id": user.ID,
+		})
 	}
 }
 
 func GetUser(c echo.Context) error {
-	id, err := strconv.Atoi(c.Param("id"))
+	id, err := uuid.FromString(c.Param("id"))
 	if err != nil {
 		return c.JSON(http.StatusConflict, map[string]string{
 			"error": "can't read id",
@@ -53,7 +55,7 @@ func GetUser(c echo.Context) error {
 			"error": err.Error(),
 		})
 	} else {
-		return c.JSON(http.StatusCreated, user)
+		return c.JSON(http.StatusOK, user)
 	}
 }
 
@@ -65,7 +67,7 @@ func UpdateUser(c echo.Context) error {
 		})
 	}
 
-	id, err := strconv.Atoi(c.Param("id"))
+	id, err := uuid.FromString(c.Param("id"))
 	if err != nil {
 		return c.JSON(http.StatusConflict, map[string]string{
 			"error": "can't read id",
@@ -83,12 +85,14 @@ func UpdateUser(c echo.Context) error {
 			"error": err.Error(),
 		})
 	} else {
-		return c.JSON(http.StatusOK, user)
+		return c.JSON(http.StatusOK, map[string]string{
+			"id": user.ID,
+		})
 	}
 }
 
 func DeleteUser(c echo.Context) error {
-	id, err := strconv.Atoi(c.Param("id"))
+	id, err := uuid.FromString(c.Param("id"))
 	if err != nil {
 		return c.JSON(http.StatusConflict, map[string]string{
 			"error": "can't read id",

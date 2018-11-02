@@ -51,6 +51,9 @@ func main() {
 
 	api := e.Group("/api/v1")
 	api.POST("/login", controllers.Login)
+	// api.POST("/contract/approve", controllers.Approve)
+	// api.POST("/contract/fund", controllers.Fund)
+	// api.POST("/contract/withdraw", controllers.Withdraw)
 
 	users := api.Group("/users")
 	users.POST("", controllers.CreateUser)

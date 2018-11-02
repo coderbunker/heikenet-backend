@@ -12,3 +12,6 @@ heroku config
 heroku config:set SECRET=secret
 heroku pg:psql
 heroku logs --tail
+
+### db
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
