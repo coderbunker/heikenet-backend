@@ -108,14 +108,21 @@
 			"revisionTime": "2018-10-21T07:30:41Z"
 		},
 		{
-			"checksumSHA1": "6FNy+ljIirVAtXlAq7gDyUX70mw=",
+			"checksumSHA1": "u46+5fxsmEixuLX1OF3zM6+aeeQ=",
 			"path": "github.com/ethereum/go-ethereum/crypto/secp256k1",
 			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
-			"revisionTime": "2018-10-21T07:30:41Z"
+			"revisionTime": "2018-10-21T07:30:41Z",
+			"tree": true
 		},
 		{
 			"checksumSHA1": "pQzUVRi0z/3Z4FpRyExSg1ROLSA=",
 			"path": "github.com/ethereum/go-ethereum/crypto/sha3",
+			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
+			"revisionTime": "2018-10-21T07:30:41Z"
+		},
+		{
+			"checksumSHA1": "1sfkGFP3/bil9i8UyX8dhFL0u5I=",
+			"path": "github.com/ethereum/go-ethereum/ethclient",
 			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
 			"revisionTime": "2018-10-21T07:30:41Z"
 		},
@@ -144,6 +151,12 @@
 			"revisionTime": "2018-10-21T07:30:41Z"
 		},
 		{
+			"checksumSHA1": "/TixkH5j7wvV11dYSkAb3BR416c=",
+			"path": "github.com/ethereum/go-ethereum/p2p/netutil",
+			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
+			"revisionTime": "2018-10-21T07:30:41Z"
+		},
+		{
 			"checksumSHA1": "HMZVf1kK6kA+grtn1ISUEzn6bm8=",
 			"path": "github.com/ethereum/go-ethereum/params",
 			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
@@ -152,6 +165,12 @@
 		{
 			"checksumSHA1": "zrskypwp1RbmLX2f/47diH1vxQc=",
 			"path": "github.com/ethereum/go-ethereum/rlp",
+			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
+			"revisionTime": "2018-10-21T07:30:41Z"
+		},
+		{
+			"checksumSHA1": "JrqevkIeZhRDl6Qw1yh8niXo97s=",
+			"path": "github.com/ethereum/go-ethereum/rpc",
 			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
 			"revisionTime": "2018-10-21T07:30:41Z"
 		},
@@ -270,6 +289,20 @@
 			"checksumSHA1": "lU41NL1TEDtsrr0yUdp3SMB4Y9o=",
 			"origin": "github.com/ethereum/go-ethereum/vendor/github.com/rjeczalik/notify",
 			"path": "github.com/rjeczalik/notify",
+			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
+			"revisionTime": "2018-10-21T07:30:41Z"
+		},
+		{
+			"checksumSHA1": "LjPdvMphElL0GOVNQCsmZMVgWIw=",
+			"origin": "github.com/ethereum/go-ethereum/vendor/github.com/rs/cors",
+			"path": "github.com/rs/cors",
+			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
+			"revisionTime": "2018-10-21T07:30:41Z"
+		},
+		{
+			"checksumSHA1": "hCRfPlNpqv8tvVivLzmXsoUOf1c=",
+			"origin": "github.com/ethereum/go-ethereum/vendor/github.com/rs/xhandler",
+			"path": "github.com/rs/xhandler",
 			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
 			"revisionTime": "2018-10-21T07:30:41Z"
 		},
@@ -415,9 +448,30 @@
 			"revisionTime": "2018-10-21T07:30:41Z"
 		},
 		{
+			"checksumSHA1": "Y+HGqEkYM15ir+J93MEaHdyFy0c=",
+			"origin": "github.com/ethereum/go-ethereum/vendor/golang.org/x/net/context",
+			"path": "golang.org/x/net/context",
+			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
+			"revisionTime": "2018-10-21T07:30:41Z"
+		},
+		{
+			"checksumSHA1": "7EZyXN0EmZLgGxZxK01IJua4c8o=",
+			"origin": "github.com/ethereum/go-ethereum/vendor/golang.org/x/net/websocket",
+			"path": "golang.org/x/net/websocket",
+			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
+			"revisionTime": "2018-10-21T07:30:41Z"
+		},
+		{
 			"checksumSHA1": "r1jWq0V3AI5DLN0aCnXXMH/is9Q=",
 			"origin": "github.com/ethereum/go-ethereum/vendor/golang.org/x/sys/unix",
 			"path": "golang.org/x/sys/unix",
+			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
+			"revisionTime": "2018-10-21T07:30:41Z"
+		},
+		{
+			"checksumSHA1": "0xgs8lwcWLUffemlj+SsgKlxvDU=",
+			"origin": "github.com/ethereum/go-ethereum/vendor/gopkg.in/natefinch/npipe.v2",
+			"path": "gopkg.in/natefinch/npipe.v2",
 			"revision": "88b41a9e680a764aa079051aa7c71b3c6879d60a",
 			"revisionTime": "2018-10-21T07:30:41Z"
 		}

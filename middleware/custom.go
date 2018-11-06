@@ -4,8 +4,9 @@ import (
 	"errors"
 
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
+
+	"github.com/coderbunker/heikenet-backend/models"
 )
 
 func GetDB(c echo.Context) (*gorm.DB, error) {
@@ -26,18 +27,18 @@ func SetDB(db *gorm.DB) echo.MiddlewareFunc {
 	}
 }
 
-func GetSecret(c echo.Context) (string, error) {
-	secret, ok := c.Get("secret").(string)
+func GetConfig(c echo.Context) (*models.AppConfig, error) {
+	config, ok := c.Get("config").(models.AppConfig)
 	if !ok {
-		return "", errors.New("no secret in context")
+		return nil, errors.New("no config in context")
 	}
-	return secret, nil
+	return &config, nil
 }
 
-func SetSecret(secret string) echo.MiddlewareFunc {
+func SetConfig(config models.AppConfig) echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
-			c.Set("secret", secret)
+			c.Set("config", config)
 			next(c)
 			return nil
 		}

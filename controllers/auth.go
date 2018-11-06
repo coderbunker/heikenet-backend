@@ -34,7 +34,7 @@ func Login(c echo.Context) error {
 		log.Fatal(err)
 	}
 
-	secret, err := mid.GetSecret(c)
+	config, err := mid.GetConfig(c)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -57,7 +57,7 @@ func Login(c echo.Context) error {
 		claims["id"] = user.ID
 		claims["exp"] = time.Now().Add(time.Hour * EXP).Unix()
 
-		t, err := token.SignedString([]byte(secret))
+		t, err := token.SignedString([]byte(config.Secret))
 		if err != nil {
 			return err
 		}

@@ -8,25 +8,15 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
+	uuid "github.com/satori/go.uuid"
 
 	"github.com/coderbunker/heikenet-backend/controllers"
 	mid "github.com/coderbunker/heikenet-backend/middleware"
 	"github.com/coderbunker/heikenet-backend/models"
 )
 
-type app_config struct {
-	Port         string `env:"PORT,required"`
-	Database_url string `env:"DATABASE_URL,required"`
-	Secret       string `env:"SECRET,required"`
-	Key          string `env:"KEY,required"`
-	Node         string `env:"NODE,required"`
-	Dai          string `env:"DAI,required"`
-	Symbol       string `env:"SYMBOL,required"`
-	Retainer     string `env:"RETAINER,required"`
-}
-
 func main() {
-	config := app_config{}
+	config := models.AppConfig{}
 	err := env.Parse(&config)
 	if err != nil {
 		log.Fatal(err)
@@ -39,28 +29,60 @@ func main() {
 	defer db.Close()
 
 	// this is for dev
-	db.AutoMigrate(&models.User{})
-	db.DropTable(&models.User{})
-	db.CreateTable(&models.User{})
+	db.AutoMigrate(
+		&models.User{},
+		&models.Profile{},
+	)
+	db.DropTable(
+		&models.User{},
+		&models.Profile{},
+	)
+	db.CreateTable(
+		&models.User{},
+		&models.Profile{},
+	)
+
+	// test users for dev ---------------------------------
+	test_user, _ := models.CreateUser(db, &models.NewUser{Name: "denis", Email: "mail", Password: "42"})
+	test_user_uuid, _ := uuid.FromString(test_user.ID)
+	test_profile, _ := models.CreateProfile(db, test_user_uuid, &models.NewProfile{Rate: 4.2, Info: "a@b.c", Wallet: "0x00001"})
+	log.Println(test_user.ID)
+	log.Println(test_profile.ID)
+	//-----------------------------------------------------
 
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	e.Use(mid.SetSecret(config.Secret))
+	e.Use(mid.SetConfig(config))
 	e.Use(mid.SetDB(db))
 
-	api := e.Group("/api/v1")
-	api.POST("/login", controllers.Login)
-	// api.POST("/contract/approve", controllers.Approve)
-	// api.POST("/contract/fund", controllers.Fund)
-	// api.POST("/contract/withdraw", controllers.Withdraw)
+	api_v1 := e.Group("/api/v1")
+	api_v1.POST("/login", controllers.Login)
+	api_v1.POST("/register", controllers.CreateUser)
 
-	users := api.Group("/users")
-	users.POST("", controllers.CreateUser)
-	// users.Use(middleware.JWT([]byte(secret)))
+	// routes: url/api/v1/users
+	users := api_v1.Group("/users")
+	// users.Use(middleware.JWT([]byte(config.Secret)))
 	users.GET("/:id", controllers.GetUser)
 	users.PUT("/:id", controllers.UpdateUser)
 	users.DELETE("/:id", controllers.DeleteUser)
+
+	//--------------------------------------------------
+	//TODO: get uuid from token!!! remove id from routes
+	//--------------------------------------------------
+
+	// routes: url/api/v1/users/profiles
+	profiles := users.Group("/:id/profiles")
+	profiles.POST("", controllers.CreateProfile)
+	profiles.GET("/:pid", controllers.GetProfile)
+	profiles.PUT("/:pid", controllers.UpdateProfile)
+	profiles.DELETE("/:pid", controllers.DeleteProfile)
+
+	// routes: url/api/v1/users/contracts
+	contracts := users.Group("/contracts")
+	contracts.POST("/approve", controllers.Approve)
+	contracts.POST("/fund", controllers.Fund)
+	contracts.POST("/withdraw", controllers.Withdraw)
 
 	e.Logger.Fatal(e.Start(":" + config.Port))
 }

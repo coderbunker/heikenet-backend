@@ -17,6 +17,7 @@ type (
 		Password  []byte    `json:"-"`
 		CreatedAt time.Time `json:"created_at"`
 		UpdatedAt time.Time `json:"updated_at"`
+		Profile   Profile
 	}
 
 	NewUser struct {
