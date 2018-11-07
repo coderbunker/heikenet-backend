@@ -18,6 +18,8 @@ import (
 )
 
 func Approve(c echo.Context) error {
+	// TODO: get params from json
+
 	// get config from context
 	config, err := mid.GetConfig(c)
 	if err != nil {
@@ -53,6 +55,8 @@ func Approve(c echo.Context) error {
 }
 
 func Fund(c echo.Context) error {
+	// TODO: get params from json
+
 	// get config from context
 	config, err := mid.GetConfig(c)
 	if err != nil {
@@ -97,6 +101,8 @@ func Fund(c echo.Context) error {
 }
 
 func Withdraw(c echo.Context) error {
+	// TODO: get params from json
+
 	// get config from context
 	config, err := mid.GetConfig(c)
 	if err != nil {
