@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
 	uuid "github.com/satori/go.uuid"
 
@@ -37,7 +38,7 @@ func CreateUser(c echo.Context) error {
 }
 
 func GetUser(c echo.Context) error {
-	id, err := uuid.FromString(c.Param("id"))
+	id, err := getIdFromJwt(c)
 	if err != nil {
 		return c.JSON(http.StatusConflict, map[string]string{
 			"error": "can't read id",
@@ -49,14 +50,14 @@ func GetUser(c echo.Context) error {
 		log.Fatal(err)
 	}
 
-	user, err := models.GetUser(db, id)
+	user, err := models.GetUser(db, *id)
 	if err != nil {
 		return c.JSON(http.StatusConflict, map[string]string{
 			"error": err.Error(),
 		})
-	} else {
-		return c.JSON(http.StatusOK, user)
 	}
+
+	return c.JSON(http.StatusOK, user)
 }
 
 func UpdateUser(c echo.Context) error {
@@ -67,7 +68,7 @@ func UpdateUser(c echo.Context) error {
 		})
 	}
 
-	id, err := uuid.FromString(c.Param("id"))
+	id, err := getIdFromJwt(c)
 	if err != nil {
 		return c.JSON(http.StatusConflict, map[string]string{
 			"error": "can't read id",
@@ -79,7 +80,7 @@ func UpdateUser(c echo.Context) error {
 		log.Fatal(err)
 	}
 
-	user, err := models.UpdateUser(db, id, new_user)
+	user, err := models.UpdateUser(db, *id, new_user)
 	if err != nil {
 		return c.JSON(http.StatusConflict, map[string]string{
 			"error": err.Error(),
@@ -92,7 +93,7 @@ func UpdateUser(c echo.Context) error {
 }
 
 func DeleteUser(c echo.Context) error {
-	id, err := uuid.FromString(c.Param("id"))
+	id, err := getIdFromJwt(c)
 	if err != nil {
 		return c.JSON(http.StatusConflict, map[string]string{
 			"error": "can't read id",
@@ -104,12 +105,25 @@ func DeleteUser(c echo.Context) error {
 		log.Fatal(err)
 	}
 
-	err = models.DeleteUser(db, id)
+	err = models.DeleteUser(db, *id)
 	if err != nil {
 		return c.JSON(http.StatusConflict, map[string]string{
 			"error": err.Error(),
 		})
-	} else {
-		return c.NoContent(http.StatusNoContent)
 	}
+
+	return c.NoContent(http.StatusNoContent)
+}
+
+func getIdFromJwt(c echo.Context) (*uuid.UUID, error) {
+	jwt_user := c.Get("user").(*jwt.Token)
+	claims := jwt_user.Claims.(jwt.MapClaims)
+	jwt_id := claims["id"].(string)
+
+	id, err := uuid.FromString(jwt_id)
+	if err != nil {
+		return nil, err
+	}
+
+	return &id, nil
 }

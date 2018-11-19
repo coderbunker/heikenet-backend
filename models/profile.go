@@ -11,18 +11,20 @@ import (
 type (
 	Profile struct {
 		ID        string    `json:"id" gorm:"type:uuid;primary_key;default:uuid_generate_v4()"`
-		Wallet    string    `json:"wallet"`
-		Info      string    `json:"info"`
 		Rate      float32   `json:"rate"`
+		Info      string    `json:"info"`
+		Wallet    string    `json:"wallet"`
+		Currency  string    `json:"currency"`
 		CreatedAt time.Time `json:"created_at"`
 		UpdatedAt time.Time `json:"updated_at"`
 		UserID    string    `json:"id" gorm:"type:uuid"`
 	}
 
 	NewProfile struct {
-		Rate   float32 `json:"rate"`
-		Info   string  `json:"info"`
-		Wallet string  `json:"wallet"`
+		Rate     float32 `json:"rate"`
+		Info     string  `json:"info"`
+		Wallet   string  `json:"wallet"`
+		Currency string  `json:"currency"`
 	}
 )
 
@@ -38,10 +40,11 @@ func CreateProfile(db *gorm.DB, user_id uuid.UUID, new_profile *NewProfile) (*Pr
 		var profile Profile
 		if db.Model(&user).Related(&profile).RecordNotFound() {
 			profile = Profile{
-				Info:   new_profile.Info,
-				Rate:   new_profile.Rate,
-				Wallet: new_profile.Wallet,
-				UserID: user.ID,
+				Info:     new_profile.Info,
+				Rate:     new_profile.Rate,
+				Wallet:   new_profile.Wallet,
+				Currency: new_profile.Currency,
+				UserID:   user.ID,
 			}
 			db.Create(&profile)
 
@@ -71,9 +74,10 @@ func UpdateProfile(db *gorm.DB, id uuid.UUID, new_profile *NewProfile) (*Profile
 	} else {
 		db.Model(&profile).Updates(
 			Profile{
-				Rate:   new_profile.Rate,
-				Info:   new_profile.Info,
-				Wallet: new_profile.Wallet,
+				Rate:     new_profile.Rate,
+				Info:     new_profile.Info,
+				Wallet:   new_profile.Wallet,
+				Currency: new_profile.Currency,
 			},
 		)
 
