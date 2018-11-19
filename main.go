@@ -44,9 +44,9 @@ func main() {
 	)
 
 	// test users for dev ---------------------------------
-	test_user, _ := models.CreateUser(db, &models.NewUser{Name: "denis", Email: "mail", Password: "42"})
-	test_user_uuid, _ := uuid.FromString(test_user.ID)
-	test_profile, _ := models.CreateProfile(db, test_user_uuid, &models.NewProfile{Rate: 4.2, Info: "a@b.c", Wallet: "0x00001"})
+	// test_user, _ := models.CreateUser(db, &models.NewUser{Name: "denis", Email: "mail", Password: "42"})
+	// test_user_uuid, _ := uuid.FromString(test_user.ID)
+	// test_profile, _ := models.CreateProfile(db, test_user_uuid, &models.NewProfile{Rate: 4.2, Info: "a@b.c", Wallet: "0x00001"})
 	//-----------------------------------------------------
 
 	e := echo.New()
