@@ -3,11 +3,11 @@ services:
 
   app:
     ports:
-      - "6379"
+      - "8888:8888"
     build: .
     environment:
         PORT: 8888
-        DATABASE_URL: postgres://heike:assword@db:5432/heike?sslmode=disable
+        DATABASE_URL: postgres://postgres:assword@db:5432/postgres?sslmode=disable
         SECRET: secret
         KEY: key
         NODE: node
@@ -29,8 +29,8 @@ services:
       timeout: 5s
       retries: 5
     environment:
-      POSTGRES_USER: heike
+      # POSTGRES_USER: heike
       POSTGRES_PASSWORD: assword
-      # : CREATE EXTENSION IF NOT EXISTS "uuid-ossp"   will do it later
+      # : CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
 
 
