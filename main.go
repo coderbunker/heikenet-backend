@@ -10,27 +10,24 @@ import (
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 
-	"github.com/coderbunker/heikenet-backend/controllers"
+	"github.com/coderbunker/heikenet-backend/handlers"
 	mid "github.com/coderbunker/heikenet-backend/middleware"
 	"github.com/coderbunker/heikenet-backend/models"
 )
 
 func main() {
-	// get app config from env
 	config := models.AppConfig{}
 	err := env.Parse(&config)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// connect to db
 	db, err := gorm.Open("postgres", config.DatabaseURL)
 	if err != nil {
 		panic("failed to connect database")
 	}
 	defer db.Close()
 
-	// this is for dev
 	// db.AutoMigrate(
 	// 	&models.User{},
 	// 	&models.Profile{},
@@ -44,11 +41,11 @@ func main() {
 	// 	&models.Profile{},
 	// )
 
-	e := echo.New()
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
-	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"*"},
+	api := echo.New()
+	api.Use(middleware.Logger())
+	api.Use(middleware.Recover())
+	api.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{config.Hostname},
 		AllowMethods: []string{
 			http.MethodGet,
 			http.MethodPut,
@@ -56,32 +53,29 @@ func main() {
 			http.MethodDelete,
 		},
 	}))
-	e.Use(mid.SetConfig(config))
-	e.Use(mid.SetDB(db))
+	api.Use(mid.SetConfig(config))
+	api.Use(mid.SetDB(db))
+	api.Use(middleware.JWTWithConfig(middleware.JWTConfig{
+		SigningKey: []byte(config.Secret),
+		Skipper: func(c echo.Context) bool {
+			if c.Path() == "/api/v1/login" {
+				return true
+			}
+			return false
+		},
+	}))
 
-	// routes: url/login, url/register
-	e.POST("/login", controllers.Login)
-	e.POST("/register", controllers.CreateUser)
+	api_v1 := api.Group("/api/v1")
+	api_v1.POST("/login", handlers.Login)
 
-	// all routes in this group are protected with jwt middleware
-	// routes: url/api/v1/users
-	api_v1 := e.Group("/api/v1")
-	api_v1.Use(middleware.JWT([]byte(config.Secret)))
-	api_v1.GET("/users", controllers.GetUser)
-	api_v1.PUT("/users", controllers.UpdateUser)
-	api_v1.DELETE("/users", controllers.DeleteUser)
+	api_v1.POST("/profiles", handlers.CreateProfile)
+	api_v1.GET("/profiles", handlers.GetProfile)
+	api_v1.PUT("/profiles", handlers.UpdateProfile)
+	api_v1.DELETE("/profiles", handlers.DeleteProfile)
 
-	// routes: url/api/v1/users/profiles
-	api_v1.POST("/users/profiles", controllers.CreateProfile)
-	api_v1.GET("/users/profiles", controllers.GetProfile)
-	api_v1.PUT("/users/profiles", controllers.UpdateProfile)
-	api_v1.DELETE("/users/profiles", controllers.DeleteProfile)
+	api_v1.POST("/contracts/approve", handlers.Approve)
+	api_v1.POST("/contracts/fund", handlers.Fund)
+	api_v1.POST("/contracts/withdraw", handlers.Withdraw)
 
-	// routes: url/api/v1/users/contracts/*
-	api_v1.POST("/users/contracts/approve", controllers.Approve)
-	api_v1.POST("/users/contracts/fund", controllers.Fund)
-	api_v1.POST("/users/contracts/withdraw", controllers.Withdraw)
-
-	// start server
-	e.Logger.Fatal(e.Start(":" + config.Port))
+	api.Logger.Fatal(api.Start(":" + config.Port))
 }
